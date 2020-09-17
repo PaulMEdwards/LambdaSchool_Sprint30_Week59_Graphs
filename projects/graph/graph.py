@@ -33,6 +33,25 @@ class Graph:
         beginning from starting_vertex.
         """
         pass  # TODO
+        # queue / dequeue
+
+        ## make a queue of vertices to visit
+
+        ## make a set to track visited separately
+
+        ## push entrypoint vertex onto queue
+
+        ## while queue isn't empty
+
+        ### dequeue first vertex as current
+
+        ### if not visited
+
+        #### add to visited set
+
+        #### get neighbors
+
+        #### enqueue neighbors
 
     def dft(self, starting_vertex):
         """
@@ -40,6 +59,25 @@ class Graph:
         beginning from starting_vertex.
         """
         pass  # TODO
+        # stack / pop
+
+        ## make stack of vertices to visit
+
+        ## make set to track visited separately
+
+        ## push entrypoint vertex onto stack
+
+        ## while stack isn't empty
+
+        ### pop off top stack entry as current
+
+        ### if not visited
+
+        #### add to visited set
+
+        #### get neighbors
+
+        #### put neighbors on stack
 
     def dft_recursive(self, starting_vertex):
         """
