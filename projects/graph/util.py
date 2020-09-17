@@ -1,8 +1,9 @@
-
 # Note: This Queue class is sub-optimal. Why?
 class Queue():
     def __init__(self):
         self.queue = []
+    def __str__(self):
+        return str(self.queue)
     def enqueue(self, value):
         self.queue.append(value)
     def dequeue(self):
@@ -16,6 +17,8 @@ class Queue():
 class Stack():
     def __init__(self):
         self.stack = []
+    def __str__(self):
+        return str(self.stack)
     def push(self, value):
         self.stack.append(value)
     def pop(self):
@@ -25,4 +28,3 @@ class Stack():
             return None
     def size(self):
         return len(self.stack)
-
