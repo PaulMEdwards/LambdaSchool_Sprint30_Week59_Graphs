@@ -39,7 +39,7 @@ class Graph:
 
         ## make a set to track visited separately
 
-        ## push entrypoint vertex onto queue
+        ## enqueue entrypoint vertex onto queue
 
         ## while queue isn't empty
 
