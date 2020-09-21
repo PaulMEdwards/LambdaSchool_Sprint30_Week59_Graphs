@@ -15,37 +15,24 @@ class Graph:
         """
         Add a vertex to the graph.
         """
-        # v = None
-        # try:
-        #     v = self.vertices[vertex_id]
-        # except:
-        #     pass
-        # # if v is not None and isinstance(v, set):
-        # if isinstance(v, set):
-        #     print(f"Vertex {vertex_id} already exists and contains values:\n{v}")
-        # else:
-        #     self.vertices[vertex_id] = set()
-        self.vertices[vertex_id] = set()
+        if vertex_id not in self.vertices:
+            self.vertices[vertex_id] = set()
+        else:
+            if debug: print(f"Vertex {vertex_id} is already in the Graph")
 
     def add_edge(self, v1, v2):
         """
         Add a directed edge to the graph.
         """
-        # testV1 = None
-        # testV2 = None
-        # try:
-        #     testV1 = self.vertices[v1]
-        #     testV2 = self.vertices[v2]
-        # except:
-        #     pass
-        # if testV1 is None: print(f"vertex target {v1} does not exist!")
-        # if testV2 is None: print(f"vertex destination {v2} does not exist!")
-        # if testV1 is None or testV2 is None: raise Exception
-        # if isinstance(testV1, set):
-        #     self.vertices[v1].add(v2)
-        # else:
-        #     raise Exception
-        self.vertices[v1].add(v2)
+        if (v1 or v2) not in self.vertices:
+            target = None
+            if v1 not in self.vertices:
+                target = v1
+            elif v2 not in self.vertices:
+                target = v2
+            raise Exception(f"Vertex {target} does not exist in the Graph")
+        else:
+            self.vertices[v1].add(v2)
 
     def get_neighbors(self, vertex_id):
         """
