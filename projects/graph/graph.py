@@ -192,7 +192,39 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        s = Stack()
+        visited = set()
+
+        s.push(starting_vertex)
+
+        while s.size() > 0:
+            if debug: print(f"Stack:\t\t{s}")
+            current_path = s.pop()
+            if debug: print(f"current_path\t{current_path}")
+            if isinstance(current_path, list):
+                current_vertex = current_path[-1]
+            elif isinstance(current_path, int):
+                current_vertex = current_path
+
+            if debug: print(f"current_vertex\t{current_vertex}\tdestination_vertex\t{destination_vertex}")
+            if current_vertex == destination_vertex:
+                return current_path
+
+            if current_vertex not in visited:
+                visited.add(current_vertex)
+
+                neighbors = self.get_neighbors(current_vertex)
+                if debug: print(f"neighbors\t{neighbors}")
+
+                for neighbor in neighbors:
+                    if isinstance(current_path, list):
+                        path_copy = current_path + [neighbor]
+                    elif isinstance(current_path, int):
+                        path_copy = []
+                        path_copy.append(current_path)
+                        path_copy.append(neighbor)
+                    if debug: print(f"path_copy\t{path_copy}")
+                    s.push(path_copy)
 
     def dfs_recursive(self, starting_vertex, destination_vertex):
         """
@@ -268,12 +300,12 @@ if __name__ == '__main__':
     print("bfs")
     print(graph.bfs(1, 6))
 
-    # '''
-    # Valid DFS paths:
-    #     [1, 2, 4, 6]
-    #     [1, 2, 4, 7, 6]
-    # '''
-    # print("dfs")
-    # print(graph.dfs(1, 6))
+    '''
+    Valid DFS paths:
+        [1, 2, 4, 6]
+        [1, 2, 4, 7, 6]
+    '''
+    print("dfs")
+    print(graph.dfs(1, 6))
     # print("dfs_recursive")
     # print(graph.dfs_recursive(1, 6))
