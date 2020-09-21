@@ -124,7 +124,7 @@ class Test(unittest.TestCase):
         ]
         output = self.graph.dfs(1, 6)
         if debug: print(f"output:\n{output}")
-        self.assertIn(self.graph.dfs(1,6), dfs)
+        self.assertIn(output, dfs)
 
     def test_dfs_recursive(self):
         print("\ntest_dfs_recursive")
@@ -134,7 +134,7 @@ class Test(unittest.TestCase):
         ]
         output = self.graph.dfs_recursive(1, 6)
         if debug: print(f"output:\n{output}")
-        self.assertIn(self.graph.dfs_recursive(1,6), dfs)
+        self.assertIn(output, dfs)
 
 if __name__ == '__main__':
     unittest.main()
