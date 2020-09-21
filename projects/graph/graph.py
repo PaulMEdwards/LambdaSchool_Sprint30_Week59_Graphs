@@ -151,7 +151,40 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
+        q = Queue()
+        visited = set()
+
+        q.enqueue(starting_vertex)
+
+        while q.size() > 0:
+            if debug: print(f"Queue:\t\t{q}")
+            current_path = q.dequeue()
+            if debug: print(f"current_path\t{current_path}")
+            if isinstance(current_path, list):
+                current_vertex = current_path[-1]
+            elif isinstance(current_path, int):
+                current_vertex = current_path
+
+            if debug: print(f"current_vertex\t{current_vertex}\tdestination_vertex\t{destination_vertex}")
+            if current_vertex == destination_vertex:
+                return current_path
+
+            if current_vertex not in visited:
+                visited.add(current_vertex)
+
+                neighbors = self.get_neighbors(current_vertex)
+                if debug: print(f"neighbors\t{neighbors}")
+
+                for neighbor in neighbors:
+                    if isinstance(current_path, list):
+                        path_copy = current_path + [neighbor]
+                    elif isinstance(current_path, int):
+                        path_copy = []
+                        path_copy.append(current_path)
+                        path_copy.append(neighbor)
+                    if debug: print(f"path_copy\t{path_copy}")
+                    q.enqueue(path_copy)
+
 
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -228,12 +261,12 @@ if __name__ == '__main__':
     # print("dft_recursive")
     # graph.dft_recursive(1)
 
-    # '''
-    # Valid BFS path:
-    #     [1, 2, 4, 6]
-    # '''
-    # print("bfs")
-    # print(graph.bfs(1, 6))
+    '''
+    Valid BFS path:
+        [1, 2, 4, 6]
+    '''
+    print("bfs")
+    print(graph.bfs(1, 6))
 
     # '''
     # Valid DFS paths:
