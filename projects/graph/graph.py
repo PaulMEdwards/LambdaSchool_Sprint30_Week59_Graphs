@@ -65,13 +65,13 @@ class Graph:
 
             ### dequeue first vertex as current
             current_node = q.dequeue()
-            if debug:
-                print(f"Current:\t{current_node}")
-            else:
-                print(current_node)
 
             ### if not visited
             if current_node not in visited:
+                if debug:
+                    print(f"Current:\t{current_node}")
+                else:
+                    print(current_node)
 
                 #### add to visited set
                 if debug: print(f"Visited:\t{visited}")
@@ -112,13 +112,13 @@ class Graph:
 
             ### pop off top stack entry as current
             current_node = s.pop()
-            if debug:
-                print(f"Current:\t{current_node}")
-            else:
-                print(current_node)
 
             ### if not visited
             if current_node not in visited:
+                if debug:
+                    print(f"Current:\t{current_node}")
+                else:
+                    print(current_node)
 
                 #### add to visited set
                 if debug: print(f"Visited:\t{visited}")
