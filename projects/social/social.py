@@ -78,12 +78,15 @@ class SocialGraph:
         random.shuffle(combinations)
         if debug: print(f"combinations shuffled:\n{combinations}")
 
-        for z in range(total_friendships):
-            user_id = combinations[z][0]
-            friend_id = combinations[z][1]
+        friendships_made = 0
+        for c in combinations:
+            user_id = c[0]
+            friend_id = c[1]
             if friend_id > user_id:
                 if debug: print(f"call add_friendship(user_id={user_id}, friend_id={friend_id})")
                 self.add_friendship(user_id, friend_id)
+                friendships_made += 2
+            if friendships_made >= total_friendships: break
 
         if debug: print(f"friendships: {self.friendships}")
 
