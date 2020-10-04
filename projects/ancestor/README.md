@@ -1,7 +1,6 @@
 # Earliest Ancestor
 
-This is a take-home coding challenge from a top tech company. The spec is providied verbatim.
-
+This is a take-home coding challenge from a top tech company. The spec is provided verbatim.
 
 ## Problem
 
@@ -9,7 +8,7 @@ Suppose we have some input data describing a graph of relationships between pare
 
 For example, in this diagram and the sample input, 3 is a child of 1 and 2, and 5 is a child of 4:
 
-```
+```text
  10
  /
 1   2   4  11
@@ -21,7 +20,7 @@ For example, in this diagram and the sample input, 3 is a child of 1 and 2, and 
 
 Write a function that, given the dataset and the ID of an individual in the dataset, returns their earliest known ancestor – the one at the farthest distance from the input individual. If there is more than one ancestor tied for "earliest", return the one with the lowest numeric ID. If the input individual has no parents, the function should return -1.
 
-```
+```text
 Example input
   6
 
@@ -40,9 +39,9 @@ Example output
 ```
 
 Clarifications:
+
 * The input will not be empty.
 * There are no cycles in the input.
 * There are no "repeated" ancestors – if two individuals are connected, it is by exactly one path.
 * IDs will always be positive integers.
 * A parent may have any number of children.
-
